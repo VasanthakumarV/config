@@ -1,5 +1,6 @@
 call plug#begin()
-Plug 'preservim/nerdtree'
+Plug 'kyazdani42/nvim-web-devicons' " for file icons
+Plug 'kyazdani42/nvim-tree.lua'
 Plug 'vim-airline/vim-airline'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
@@ -122,6 +123,9 @@ vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
 vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
 EOF
 
+"nvim-tree toggle shortcut
+nnoremap <C-n> :NvimTreeToggle<CR>
+
 set number
 set relativenumber
 set ignorecase
@@ -167,9 +171,6 @@ colorscheme ayu
 
 "GitGutter: reducing latency for symbols to appear
 set updatetime=100
-
-"NerdTree: toggle
-map <C-n> :NERDTreeToggle<CR>
 
 "FloatTerm: mappings for opening and toggling the terminal
 tnoremap <Esc> <C-\><C-n>
