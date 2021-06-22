@@ -19,6 +19,7 @@ Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'easymotion/vim-easymotion'
 Plug 'hrsh7th/nvim-compe'
+Plug 'sbdchd/neoformat'
 call plug#end()
 
 lua << EOF
@@ -50,7 +51,6 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
   buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
   buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
-  buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
 
 end
 
@@ -204,6 +204,9 @@ let $FZF_DEFAULT_COMMAND = 'rg --files'
 
 "tagbar
 nmap <leader><leader>r :TagbarToggle<CR>
+
+"Neoformat
+nmap <space>f :Neoformat<CR>
 
 "easymotion
 map  <Leader>s <Plug>(easymotion-bd-f)
