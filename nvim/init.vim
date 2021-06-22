@@ -126,6 +126,9 @@ EOF
 "nvim-tree toggle shortcut
 nnoremap <C-n> :NvimTreeToggle<CR>
 
+"nvim-compe to avoid 'Pattern not found'
+set shortmess+=c
+
 set number
 set relativenumber
 set ignorecase
