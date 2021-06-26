@@ -20,6 +20,7 @@ Plug 'plasticboy/vim-markdown'
 Plug 'easymotion/vim-easymotion'
 Plug 'hrsh7th/nvim-compe'
 Plug 'sbdchd/neoformat'
+Plug 'yamatsum/nvim-cursorline'
 call plug#end()
 
 lua << EOF
