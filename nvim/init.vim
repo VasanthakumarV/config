@@ -155,7 +155,7 @@ set hidden
 autocmd InsertEnter * set cul
 autocmd InsertLeave * set nocul
 
-"Adding \a as an alt binding for <Esc>
+"Adding <space>a as an alt binding for <Esc>
 nmap <leader>w :w<CR>
 nnoremap <leader>a <Esc>
 inoremap <leader>a <Esc>
