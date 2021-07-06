@@ -58,7 +58,18 @@ end
 -- map buffer local keybindings when the language server attaches
 local servers = { "pyls", "rust_analyzer", "tsserver" }
 for _, lsp in ipairs(servers) do
-  nvim_lsp[lsp].setup { on_attach = on_attach }
+	nvim_lsp[lsp].setup { 
+		on_attach = on_attach, 
+		settings = {
+			pyls = {
+				plugins = {
+					pycodestyle = {
+						maxLineLength=100
+					}
+				}
+			}
+		}
+	}
 end
 EOF
 
@@ -207,6 +218,7 @@ nmap <leader><leader>r :TagbarToggle<CR>
 
 "Neoformat
 nmap <space>f :Neoformat<CR>
+let g:neoformat_enabled_python = ['black']
 
 "easymotion
 map  <Leader>s <Plug>(easymotion-bd-f)
