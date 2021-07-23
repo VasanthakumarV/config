@@ -56,15 +56,15 @@ end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { "pyls", "rust_analyzer", "tsserver" }
+local servers = { "pylsp", "rust_analyzer" }
 for _, lsp in ipairs(servers) do
 	nvim_lsp[lsp].setup { 
 		on_attach = on_attach, 
 		settings = {
-			pyls = {
+			pylsp = {
 				plugins = {
 					pycodestyle = {
-						maxLineLength=100
+						maxLineLength = 100
 					}
 				}
 			}
@@ -159,7 +159,7 @@ set selectmode+=mouse
 syntax on
 set termguicolors
 "Max line length
-set colorcolumn=80
+set colorcolumn=100
 set hidden
 
 "Cursor: changing shape in insert mode
