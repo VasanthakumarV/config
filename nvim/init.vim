@@ -161,6 +161,9 @@ set termguicolors
 "Max line length
 set colorcolumn=100
 set hidden
+"Set space count for tab
+set tabstop=4
+set shiftwidth=4
 
 "Cursor: changing shape in insert mode
 autocmd InsertEnter * set cul
@@ -217,7 +220,7 @@ let $FZF_DEFAULT_COMMAND = 'rg --files'
 nmap <leader><leader>r :TagbarToggle<CR>
 
 "Neoformat
-nmap <space>f :Neoformat<CR>
+nmap <leader>f :Neoformat<CR>
 let g:neoformat_enabled_python = ['black']
 
 "easymotion
