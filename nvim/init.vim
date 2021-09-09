@@ -18,6 +18,7 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'easymotion/vim-easymotion'
+Plug 'yamatsum/nvim-cursorline', { 'branch': 'main' }
 Plug 'sbdchd/neoformat'
 Plug 'hrsh7th/nvim-cmp', { 'branch': 'main' }
 Plug 'hrsh7th/cmp-nvim-lsp', { 'branch': 'main' }
