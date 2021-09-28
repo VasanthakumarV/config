@@ -11,7 +11,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'voldikss/vim-floaterm'
 Plug 'puremourning/vimspector'
 Plug 'yggdroot/indentline'
-Plug 'ayu-theme/ayu-vim'
+Plug 'morhetz/gruvbox'
 Plug 'majutsushi/tagbar'
 Plug 'sheerun/vim-polyglot'
 Plug 'neovim/nvim-lspconfig'
@@ -20,6 +20,7 @@ Plug 'plasticboy/vim-markdown'
 Plug 'easymotion/vim-easymotion'
 Plug 'yamatsum/nvim-cursorline', { 'branch': 'main' }
 Plug 'sbdchd/neoformat'
+Plug 'nvim-lua/plenary.nvim'
 Plug 'hrsh7th/nvim-cmp', { 'branch': 'main' }
 Plug 'hrsh7th/cmp-nvim-lsp', { 'branch': 'main' }
 Plug 'hrsh7th/cmp-vsnip', { 'branch': 'main' }
@@ -29,6 +30,8 @@ Plug 'hrsh7th/vim-vsnip'
 call plug#end()
 
 lua << EOF
+require'nvim-tree'.setup()
+
 local nvim_lsp = require('lspconfig')
 
 -- Use an on_attach function to only map the following keys 
@@ -117,12 +120,6 @@ cmp.setup({
 })
 EOF
 
-"nvim-tree toggle shortcut
-nnoremap <C-n> :NvimTreeToggle<CR>
-
-"nvim-compe to avoid 'Pattern not found'
-set shortmess+=c
-
 set number
 set relativenumber
 set ignorecase
@@ -140,7 +137,6 @@ filetype plugin indent on
 set selectmode+=mouse
 "For the theme
 syntax on
-set termguicolors
 "Max line length
 set colorcolumn=100
 set hidden
@@ -164,10 +160,16 @@ onoremap <leader>a <Esc>
 lnoremap <leader>a <Esc>
 tnoremap <leader>a <Esc>
 
+"nvim-tree toggle shortcut
+nnoremap <C-n> :NvimTreeToggle<CR>
+nnoremap <leader>r :NvimTreeRefresh<CR>
+nnoremap <leader>n :NvimTreeFindFile<CR>
+
 "ColorScheme
+set termguicolors
 set background=dark
-let ayucolor="dark"
-colorscheme ayu
+colorscheme gruvbox 
+let g:gruvbox_contrast_dark = 'hard' 
 
 "GitGutter: reducing latency for symbols to appear
 set updatetime=100
@@ -195,9 +197,9 @@ nmap <leader>di <Plug>VimspectorBalloonEval
 xmap <leader>di <Plug>VimspectorBalloonEval
 
 "fzf: setting key map
-nmap <C-p> :Files<CR>
+nmap <leader>g :Files<CR>
 "Ignore hidden files
-let $FZF_DEFAULT_COMMAND = 'rg --files'
+let $FZF_DEFAULT_COMMAND = 'rg --files --hidden'
 
 "tagbar
 nmap <leader><leader>r :TagbarToggle<CR>
