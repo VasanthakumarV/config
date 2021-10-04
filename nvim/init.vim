@@ -1,6 +1,5 @@
 call plug#begin()
-Plug 'kyazdani42/nvim-web-devicons' " for file icons
-Plug 'kyazdani42/nvim-tree.lua'
+Plug 'preservim/nerdtree'
 Plug 'vim-airline/vim-airline'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
@@ -11,7 +10,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'voldikss/vim-floaterm'
 Plug 'puremourning/vimspector'
 Plug 'yggdroot/indentline'
-Plug 'morhetz/gruvbox'
+Plug 'tanvirtin/monokai.nvim'
 Plug 'majutsushi/tagbar'
 Plug 'sheerun/vim-polyglot'
 Plug 'neovim/nvim-lspconfig'
@@ -30,8 +29,19 @@ Plug 'hrsh7th/vim-vsnip'
 call plug#end()
 
 lua << EOF
-require'nvim-tree'.setup()
+local monokai = require('monokai')
+local palette = monokai.pro
+monokai.setup {
+	custom_hlgroups = {
+		SpecialComment = {
+            fg = palette.orange,
+			style = 'italic',
+        },
+	}
+}
+EOF
 
+lua << EOF
 local nvim_lsp = require('lspconfig')
 
 -- Use an on_attach function to only map the following keys 
@@ -132,13 +142,10 @@ set incsearch
 set hlsearch
 set nolangremap
 set mouse=a
-filetype plugin indent on
-"usr_09.txt
+"filetype plugin indent on
 set selectmode+=mouse
 "For the theme
 syntax on
-"Max line length
-set colorcolumn=100
 set hidden
 "Set space count for tab
 set tabstop=4
@@ -160,16 +167,13 @@ onoremap <leader>a <Esc>
 lnoremap <leader>a <Esc>
 tnoremap <leader>a <Esc>
 
-"nvim-tree toggle shortcut
-nnoremap <C-n> :NvimTreeToggle<CR>
-nnoremap <leader>r :NvimTreeRefresh<CR>
-nnoremap <leader>n :NvimTreeFindFile<CR>
+"nerd-tree
+nnoremap <C-n> :NERDTreeToggle<CR>
 
 "ColorScheme
 set termguicolors
 set background=dark
-colorscheme gruvbox 
-let g:gruvbox_contrast_dark = 'hard' 
+colorscheme monokai_pro
 
 "GitGutter: reducing latency for symbols to appear
 set updatetime=100
