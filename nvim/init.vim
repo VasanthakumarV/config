@@ -29,17 +29,6 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 call plug#end()
 
 lua << EOF
-local monokai = require("monokai")
-local palette = monokai.pro
-monokai.setup {
-    custom_hlgroups = {
-        SpecialComment = {
-            fg = palette.orange,
-            style = "italic"
-        }
-    }
-}
-
 local nvim_lsp = require("lspconfig")
 
 -- Use an on_attach function to only map the following keys
@@ -154,7 +143,8 @@ require "lsp_signature".setup()
 -- tree-sitter
 require "nvim-treesitter.configs".setup {
     highlight = {
-        enable = true
+        enable = true,
+        additional_vim_regex_highlighting = false,
     },
     incremental_selection = {
         enable = true
