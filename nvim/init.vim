@@ -25,18 +25,19 @@ Plug 'L3MON4D3/LuaSnip'
 Plug 'ray-x/lsp_signature.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 call plug#end()
 
 lua << EOF
 local monokai = require('monokai')
 local palette = monokai.pro
 monokai.setup {
-	custom_hlgroups = {
-		SpecialComment = {
-			fg = palette.orange,
-			style = 'italic',
-		},
-	}
+  custom_hlgroups = {
+    SpecialComment = {
+      fg = palette.orange,
+      style = 'italic',
+    },
+  }
 }
 EOF
 
@@ -76,26 +77,25 @@ end
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
--- Use a loop to conveniently call 'setup' on multiple servers and
--- map buffer local keybindings when the language server attaches
-local servers = { "pylsp", "rust_analyzer" }
+-- Enable some language servers with the additional completion capabilities offered by nvim-cmp
+local servers = { 'pylsp', 'rust_analyzer', 'tsserver' }
 for _, lsp in ipairs(servers) do
-	nvim_lsp[lsp].setup { 
-		on_attach = on_attach, 
-		capabilities = capabilities,
-		settings = {
-			["rust-analyzer"] = {
-				checkOnSave = "clippy"
-			},
-			pylsp = {
-				plugins = {
-					pycodestyle = {
-						maxLineLength = 100
-					}
-				}
-			}
+  nvim_lsp[lsp].setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+	settings = {
+	  ["rust-analyzer"] = {
+	    checkOnSave = "clippy"
+	  },
+	  pylsp = {
+        plugins = {
+		  pycodestyle = {
+		    maxLineLength = 100
+		  }
 		}
-	}
+	  }
+    }
+  }
 end
 
 -- Set completeopt to have a better completion experience
@@ -150,6 +150,19 @@ cmp.setup {
 
 -- lsp-signature
 require "lsp_signature".setup()
+
+-- tree-sitter
+require'nvim-treesitter.configs'.setup {
+	highlight = {
+		enable = true,
+	},
+	incremental_selection = {
+		enable = true
+	},
+	indent = {
+		enable = true
+	}
+}
 EOF
 
 set number
