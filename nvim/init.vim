@@ -4,20 +4,15 @@ Plug 'preservim/nerdtree'
 Plug 'vim-airline/vim-airline'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
-Plug 'raimondi/delimitmate'
 Plug 'airblade/vim-gitgutter'
 Plug 'voldikss/vim-floaterm'
 Plug 'puremourning/vimspector'
-Plug 'yggdroot/indentline'
 Plug 'tanvirtin/monokai.nvim'
-Plug 'majutsushi/tagbar'
-Plug 'sheerun/vim-polyglot'
-Plug 'neovim/nvim-lspconfig'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'easymotion/vim-easymotion'
-Plug 'yamatsum/nvim-cursorline', { 'branch': 'main' }
 Plug 'sbdchd/neoformat'
+Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-cmp', { 'branch': 'main' }
 Plug 'hrsh7th/cmp-nvim-lsp', { 'branch': 'main' }
 Plug 'saadparwaiz1/cmp_luasnip'
@@ -26,6 +21,8 @@ Plug 'ray-x/lsp_signature.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'windwp/nvim-autopairs'
+Plug 'Yggdroot/indentLine'
 call plug#end()
 
 lua << EOF
@@ -67,15 +64,12 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-local servers = {"pylsp", "rust_analyzer", "tsserver"}
+local servers = {"pylsp", "rust_analyzer"}
 for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup {
         on_attach = on_attach,
         capabilities = capabilities,
         settings = {
-            ["rust-analyzer"] = {
-                checkOnSave = "clippy"
-            },
             pylsp = {
                 plugins = {
                     pycodestyle = {
@@ -153,6 +147,9 @@ require "nvim-treesitter.configs".setup {
         enable = true
     }
 }
+
+-- autopairs
+require "nvim-autopairs".setup{}
 EOF
 
 set number
@@ -231,9 +228,6 @@ nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
-
-"tagbar
-nmap <leader><leader>r :TagbarToggle<CR>
 
 "Neoformat
 nmap <leader>f :Neoformat<CR>
