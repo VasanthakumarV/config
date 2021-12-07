@@ -1,4 +1,5 @@
 call plug#begin()
+Plug 'tpope/vim-fugitive'
 Plug 'preservim/nerdtree'
 Plug 'vim-airline/vim-airline'
 Plug 'scrooloose/nerdcommenter'
