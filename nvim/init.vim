@@ -22,6 +22,7 @@ Plug 'hrsh7th/nvim-cmp', { 'branch': 'main' }
 Plug 'hrsh7th/cmp-nvim-lsp', { 'branch': 'main' }
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'L3MON4D3/LuaSnip'
+Plug 'ray-x/lsp_signature.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 call plug#end()
@@ -146,6 +147,9 @@ cmp.setup {
     { name = 'luasnip' },
   },
 }
+
+-- lsp-signature
+require "lsp_signature".setup()
 EOF
 
 set number
