@@ -6,8 +6,6 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
 Plug 'raimondi/delimitmate'
 Plug 'airblade/vim-gitgutter'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
 Plug 'voldikss/vim-floaterm'
 Plug 'puremourning/vimspector'
 Plug 'yggdroot/indentline'
@@ -24,6 +22,8 @@ Plug 'hrsh7th/nvim-cmp', { 'branch': 'main' }
 Plug 'hrsh7th/cmp-nvim-lsp', { 'branch': 'main' }
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'L3MON4D3/LuaSnip'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 call plug#end()
 
 lua << EOF
@@ -218,10 +218,12 @@ nmap <leader>di <Plug>VimspectorBalloonEval
 " for visual mode, the visually selected text
 xmap <leader>di <Plug>VimspectorBalloonEval
 
-"fzf: setting key map
-nmap <leader>g :Files<CR>
-"Ignore hidden files
-let $FZF_DEFAULT_COMMAND = 'rg --files --hidden'
+"telescope
+" Find files using Telescope command-line sugar.
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 "tagbar
 nmap <leader><leader>r :TagbarToggle<CR>
