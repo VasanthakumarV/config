@@ -1,24 +1,21 @@
 font:
   normal:
-    family: "Input Mono"
+    family: "JetBrainsMono Nerd Font Mono"
     style: Regular
 
   bold:
-    family: "Input Mono"
+    family: "JetBrainsMono Nerd Font Mono"
     style: Bold
 
   italic:
-    family: "Input Mono"
+    family: "JetBrainsMono Nerd Font Mono"
     style: Italic
 
   bold_italic:
-    family: "Input Mono"
+    family: "JetBrainsMono Nerd Font Mono"
     style: Bold Italic
 
   size: 11
-
-  offset:
-    y: 1
 
 colors:
   primary:
