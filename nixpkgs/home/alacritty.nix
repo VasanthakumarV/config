@@ -46,39 +46,24 @@
       };
       key_bindings = [
         {
-          key = "C";
-          mods = "Control";
-          action = "Copy";
+          key = "H";
+          mods = "Alt";
+          chars = "\\x1bh";
         }
         {
-          key = "V";
-          mods = "Control";
-          action = "Paste";
+          key = "J";
+          mods = "Alt";
+          chars = "\\x1bj";
         }
         {
-          key = "Key0";
-          mods = "Control";
-          action = "ResetFontSize";
+          key = "K";
+          mods = "Alt";
+          chars = "\\x1bK";
         }
         {
-          key = "Minus";
-          mods = "Control";
-          action = "DecreaseFontSize";
-        }
-        {
-          key = "Equals";
-          mods = "Control";
-          action = "IncreaseFontSize";
-        }
-        {
-          key = "Minus";
-          mods = "Control";
-          action = "DecreaseFontSize";
-        }
-        {
-          key = "Plus";
-          mods = "Control";
-          action = "IncreaseFontSize";
+          key = "L";
+          mods = "Alt";
+          chars = "\\x1bl";
         }
       ];
     };
