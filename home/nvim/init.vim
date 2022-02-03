@@ -1,42 +1,11 @@
-call plug#begin()
-Plug 'tpope/vim-fugitive'
-Plug 'preservim/nerdtree'
-Plug 'vim-airline/vim-airline'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-surround'
-Plug 'airblade/vim-gitgutter'
-Plug 'voldikss/vim-floaterm'
-Plug 'puremourning/vimspector'
-Plug 'tanvirtin/monokai.nvim'
-Plug 'godlygeek/tabular'
-Plug 'plasticboy/vim-markdown'
-Plug 'easymotion/vim-easymotion'
-Plug 'sbdchd/neoformat'
-Plug 'neovim/nvim-lspconfig'
-Plug 'hrsh7th/nvim-cmp', { 'branch': 'main' }
-Plug 'hrsh7th/cmp-nvim-lsp', { 'branch': 'main' }
-Plug 'saadparwaiz1/cmp_luasnip'
-Plug 'L3MON4D3/LuaSnip'
-Plug 'ray-x/lsp_signature.nvim'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'windwp/nvim-autopairs'
-Plug 'Yggdroot/indentLine'
-call plug#end()
-
 lua << EOF
-local nvim_lsp = require("lspconfig")
+local nvim_lsp = require('lspconfig')
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
-    local function buf_set_keymap(...)
-        vim.api.nvim_buf_set_keymap(bufnr, ...)
-    end
-    local function buf_set_option(...)
-        vim.api.nvim_buf_set_option(bufnr, ...)
-    end
+  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+  local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
     -- Mappings.
     local opts = {noremap = true, silent = true}
@@ -59,10 +28,6 @@ local on_attach = function(client, bufnr)
     buf_set_keymap("n", "<space>q", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", opts)
 end
 
--- Add additional capabilities supported by nvim-cmp
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
-
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
 local servers = {"pylsp", "rust_analyzer"}
 for _, lsp in ipairs(servers) do
@@ -80,6 +45,10 @@ for _, lsp in ipairs(servers) do
         }
     }
 end
+
+-- Add additional capabilities supported by nvim-cmp
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = "menuone,noselect"
@@ -150,6 +119,23 @@ require "nvim-treesitter.configs".setup {
 
 -- autopairs
 require "nvim-autopairs".setup{}
+
+-- colorscheme
+local nightfox = require('nightfox')
+
+-- This function set the configuration of nightfox. If a value is not passed in the setup function
+-- it will be taken from the default configuration above
+nightfox.setup({
+  fox = "nightfox", -- change the colorscheme to use nordfox
+  styles = {
+    comments = "italic", -- change style of comments to be italic
+    keywords = "bold", -- change style of keywords to be bold
+    functions = "italic,bold" -- styles can be a comma separated list
+  },
+})
+
+-- Load the configuration set above and apply the colorscheme
+nightfox.load()
 EOF
 
 set number
@@ -172,6 +158,8 @@ set hidden
 "Set space count for tab
 set tabstop=4
 set shiftwidth=4
+" highlight current line
+set cursorline
 
 "Cursor: changing shape in insert mode
 autocmd InsertEnter * set cul
@@ -195,7 +183,6 @@ nnoremap <C-n> :NERDTreeToggle<CR>
 "ColorScheme
 set termguicolors
 set background=dark
-colorscheme monokai_pro
 
 "GitGutter: reducing latency for symbols to appear
 set updatetime=100

@@ -25,7 +25,7 @@ in {
       (plugin "airblade/vim-gitgutter")
       (plugin "voldikss/vim-floaterm")
       (plugin "puremourning/vimspector")
-      (plugin "tanvirtin/monokai.nvim")
+      (plugin "EdenEast/nightfox.nvim")
       (plugin "godlygeek/tabular")
       (plugin "plasticboy/vim-markdown")
       (plugin "easymotion/vim-easymotion")
@@ -47,4 +47,3 @@ in {
     '';
   };
 }
-

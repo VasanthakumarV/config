@@ -14,6 +14,12 @@
   outputs = { self, darwin, nixpkgs, home-manager }:
     let
       home = builtins.getEnv "HOME";
+
+      user = {
+        username = "vasanthakumarv";
+        home = "/Users/vasanthakumarv";
+      };
+
       configuration = { pkgs, ... }: {
         services.nix-daemon.enable = true;
 
@@ -24,12 +30,12 @@
         fonts = {
           enableFontDir = true;
           fonts = with pkgs;
-            [ (nerdfonts.override { fonts = [ "JetBrainsMono" ]; }) ];
+            [ (nerdfonts.override { fonts = [ "Iosevka" ]; }) ];
         };
 
         users.users.vasanthakumarv = {
-          name = "vasanthakumarv";
-          home = "/Users/vasanthakumarv";
+          name = user.username;
+          home = user.home;
           shell = pkgs.zsh;
         };
       };
@@ -42,7 +48,9 @@
           {
             home-manager = {
               useGlobalPkgs = true;
-              users.vasanthakumarv = import "${home}/.config/nixpkgs/home";
+              extraSpecialArgs = { user = user; };
+              # TODO: Fix this, no hardcoding path
+              users.vasanthakumarv = import "${home}/.config/config/home";
             };
           }
         ];

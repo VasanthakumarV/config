@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, user, ... }: {
   imports = [
     (import ./programs.nix { inherit pkgs; })
     (import ./zsh.nix { inherit pkgs; })

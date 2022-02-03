@@ -6,15 +6,15 @@
       font = {
         size = 11.0;
         normal = {
-          family = "JetBrainsMono Nerd Font";
+          family = "Iosevka Nerd Font";
           style = "Regular";
         };
         bold = {
-          family = "JetBrainsMono Nerd Font";
+          family = "Iosevka Nerd Font";
           style = "Bold";
         };
         italic = {
-          family = "JetBrainsMono Nerd Font";
+          family = "Iosevka Nerd Font";
           style = "Italic";
         };
       };
