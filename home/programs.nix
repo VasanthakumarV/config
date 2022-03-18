@@ -8,10 +8,6 @@
     zellij
     nixfmt
 
-    # Python related
-    pipenv
-    black
-
     # Required for downloading and parsing chip files
     # Associated with Embassy
     jq
