@@ -29,18 +29,24 @@ local on_attach = function(client, bufnr)
 end
 
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-local servers = {"pyright", "rust_analyzer"}
-for _, lsp in ipairs(servers) do
-    nvim_lsp[lsp].setup {
-        on_attach = on_attach,
-        capabilities = capabilities,
-        settings = {
-            procMacro = {
-                enable = true
-            }
-        }
-    }
-end
+nvim_lsp.pyright.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+})
+nvim_lsp.rust_analyzer.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+	settings = {
+		["rust-analyzer"] = {
+			cargo = {
+				loadOutDirsFromCheck = true
+			},
+			procMacro = {
+				enable = true
+			},
+		}
+	}
+})
 
 -- Add additional capabilities supported by nvim-cmp
 local capabilities = vim.lsp.protocol.make_client_capabilities()
