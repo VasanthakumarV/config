@@ -5,6 +5,7 @@
     cargo-edit
     cargo-expand
     cargo-flamegraph
+    cargo-watch
     probe-run
   ];
 }
