@@ -7,5 +7,6 @@
     cargo-flamegraph
     cargo-watch
     probe-run
+	sqlx-cli
   ];
 }

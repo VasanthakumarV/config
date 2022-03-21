@@ -14,5 +14,10 @@
     jq
     wget
     svdtools
+
+	# Podman and its dependencies
+    podman
+    qemu
+    xz
   ];
 }
