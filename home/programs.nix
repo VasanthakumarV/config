@@ -5,6 +5,7 @@
     ripgrep
     fd
     bottom
+    dua
     zellij
     nixfmt
 
