@@ -8,6 +8,7 @@
     dua
     zellij
     nixfmt
+    nushell
 
     # Required for downloading and parsing chip files
     # Associated with Embassy
@@ -15,9 +16,10 @@
     wget
     svdtools
 
-	# Podman and its dependencies
+    # Podman and dependencies
     podman
     qemu
     xz
+    podman-compose
   ];
 }
