@@ -6,7 +6,6 @@
     fd
     bottom
     dua
-    zellij
     nixfmt
     nushell
 

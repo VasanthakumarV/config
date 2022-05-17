@@ -6,6 +6,7 @@
     (import ./python.nix { inherit pkgs; })
     ./starship.nix
     ./alacritty.nix
+    ./zellij.nix
     ./nvim
   ];
 }
