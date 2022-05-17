@@ -118,17 +118,16 @@ require "nvim-treesitter.configs".setup {
 require "nvim-autopairs".setup{}
 
 -- colorscheme
+vim.cmd("colorscheme nightfox")
 require('nightfox').setup({
   options = {
     styles = {
-      comments = "italic", -- change style of comments to be italic
-      keywords = "bold", -- change style of keywords to be bold
-      functions = "italic,bold" -- styles can be a comma separated list
-    },
+      comments = "italic",
+      keywords = "bold",
+      types = "italic,bold",
+    }
   }
 })
-
-vim.cmd("colorscheme duskfox")
 EOF
 
 set number
