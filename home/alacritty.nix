@@ -20,28 +20,28 @@
       };
       colors = {
         primary = {
-          background = "#2D2A2E";
-          foreground = "#FCFCFA";
+          background = "#192330";
+          foreground = "#d6d6d7";
         };
         normal = {
-          black = "#403E41";
-          red = "#FF6188";
-          green = "#A9DC76";
-          yellow = "#FFD866";
-          blue = "#FC9867";
-          magenta = "#AB9DF2";
-          cyan = "#78DCE8";
-          white = "#FCFCFA";
+          black = "#393b44";
+          red = "#c94f6d";
+          green = "#81b29a";
+          yellow = "#dbc074";
+          blue = "#719cd6";
+          magenta = "#9d79d6";
+          cyan = "#63cdcf";
+          white = "#dfdfe0";
         };
         bright = {
-          black = "#727072";
-          red = "#FF6188";
-          green = "#A9DC76";
-          yellow = "#FFD866";
-          blue = "#FC9867";
-          magenta = "#AB9DF2";
-          cyan = "#78DCE8";
-          white = "#FCFCFA";
+          black = "#393b44";
+          red = "#c94f6d";
+          green = "#81b29a";
+          yellow = "#dbc074";
+          blue = "#719cd6";
+          magenta = "#9d79d6";
+          cyan = "#63cdcf";
+          white = "#dfdfe0";
         };
       };
       key_bindings = [
