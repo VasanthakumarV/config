@@ -118,7 +118,6 @@ require "nvim-treesitter.configs".setup {
 require "nvim-autopairs".setup{}
 
 -- colorscheme
-vim.cmd("colorscheme nightfox")
 require('nightfox').setup({
   options = {
     styles = {
@@ -128,6 +127,15 @@ require('nightfox').setup({
     }
   }
 })
+vim.cmd("colorscheme nightfox")
+
+require('nvim-tree').setup {
+  actions = {
+    open_file = {
+      quit_on_open = true,
+    }
+  }
+}
 EOF
 
 set number
@@ -169,12 +177,8 @@ onoremap <leader>a <Esc>
 lnoremap <leader>a <Esc>
 tnoremap <leader>a <Esc>
 
-"nerd-tree
-nnoremap <C-n> :NERDTreeToggle<CR>
-
 "ColorScheme
 set termguicolors
-set background=dark
 
 "GitGutter: reducing latency for symbols to appear
 set updatetime=100
@@ -186,6 +190,11 @@ let g:floaterm_keymap_prev = '<leader><leader>p'
 let g:floaterm_keymap_next = '<leader><leader>n'
 let g:floaterm_keymap_toggle = '<leader><leader>t'
 let g:floaterm_width=0.95
+
+"File explorer: nvim tree lua
+nnoremap <C-n> :NvimTreeToggle<CR>
+nnoremap <leader>r :NvimTreeRefresh<CR>
+nnoremap <leader>n :NvimTreeFindFile<CR>
 
 "vim-markdown avoid folding
 let g:vim_markdown_folding_disabled = 1
