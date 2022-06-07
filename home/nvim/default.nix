@@ -3,8 +3,8 @@
     enable = true;
     plugins = with pkgs.vimPlugins; [
       vim-fugitive
-	  nvim-web-devicons
-	  nvim-tree-lua
+      nvim-web-devicons
+      nvim-tree-lua
       vim-airline
       vim-commentary
       vim-gitgutter

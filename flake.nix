@@ -29,7 +29,8 @@
 
         fonts = {
           enableFontDir = true;
-          fonts = with pkgs; [ (nerdfonts.override { fonts = [ "DaddyTimeMono" ]; }) ];
+          fonts = with pkgs;
+            [ (nerdfonts.override { fonts = [ "DaddyTimeMono" ]; }) ];
         };
 
         users.users.vasanthakumarv = {
