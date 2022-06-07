@@ -29,8 +29,7 @@
 
         fonts = {
           enableFontDir = true;
-          fonts = with pkgs;
-            [ (nerdfonts.override { fonts = [ "Iosevka" ]; }) ];
+          fonts = with pkgs; [ (nerdfonts.override { fonts = [ "DaddyTimeMono" ]; }) ];
         };
 
         users.users.vasanthakumarv = {

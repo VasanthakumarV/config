@@ -4,18 +4,18 @@
     settings = {
       env = { "TERM" = "xterm-256color"; };
       font = {
-        size = 11.0;
+        size = 12.0;
         normal = {
-          family = "Iosevka Nerd Font";
-          style = "Regular";
+          family = "DaddyTimeMono Nerd Font";
+          style = "Book";
         };
         bold = {
-          family = "Iosevka Nerd Font";
-          style = "Bold";
+          family = "DaddyTimeMono Nerd Font";
+          style = "Book";
         };
         italic = {
-          family = "Iosevka Nerd Font";
-          style = "Italic";
+          family = "DaddyTimeMono Nerd Font";
+          style = "Book";
         };
       };
       colors = {
