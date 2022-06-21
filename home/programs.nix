@@ -15,10 +15,7 @@
     wget
     svdtools
 
-    # Podman and dependencies
-    podman
-    qemu
-    xz
-    podman-compose
+    # journal
+    mdbook
   ];
 }
