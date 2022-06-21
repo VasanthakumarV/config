@@ -32,16 +32,27 @@ end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'pyright', 'rust_analyzer', 'tsserver' }
-for _, lsp in pairs(servers) do
+local lsp_flags = {
+	-- This will be the default in neovim 0.7+
+	debounce_text_changes = 150,
+}
+for _, lsp in pairs({'pyright', 'tsserver'}) do
   require('lspconfig')[lsp].setup {
     on_attach = on_attach,
-    flags = {
-      -- This will be the default in neovim 0.7+
-      debounce_text_changes = 150,
-    }
+    flags = lsp_flags,
   }
 end
+require('lspconfig')['rust_analyzer'].setup {
+	on_attach = on_attach,
+    flags = lsp_flags,
+	settings = {
+		['rust-analyzer'] = {
+			checkOnSave = {
+				allTargets = false
+			},
+		}
+	}
+}
 
 -- Add additional capabilities supported by nvim-cmp
 local capabilities = vim.lsp.protocol.make_client_capabilities()
