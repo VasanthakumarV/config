@@ -30,7 +30,7 @@
         fonts = {
           enableFontDir = true;
           fonts = with pkgs;
-            [ (nerdfonts.override { fonts = [ "DaddyTimeMono" ]; }) ];
+            [ (nerdfonts.override { fonts = [ "CascadiaCode" ]; }) ];
         };
 
         users.users.vasanthakumarv = {
