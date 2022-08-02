@@ -50,7 +50,10 @@ require('lspconfig')['rust_analyzer'].setup {
 			checkOnSave = {
 				allTargets = false
 			},
-		}
+		},
+	procMacro = {
+				enable = true
+			},
 	}
 }
 
@@ -132,9 +135,10 @@ require "nvim-autopairs".setup{}
 require('nightfox').setup({
   options = {
     styles = {
-      comments = "italic",
-      keywords = "bold",
+      comments = "italic,bold",    -- Value is any valid attr-list value `:help attr-list`
+      constants = "italic,bold",
       types = "italic,bold",
+	  functions = "italic,bold",
     }
   }
 })

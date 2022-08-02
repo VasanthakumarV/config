@@ -17,5 +17,8 @@
 
     # journal
     mdbook
+
+	# dbs
+	postgresql
   ];
 }

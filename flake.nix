@@ -1,6 +1,6 @@
 {
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-22.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     darwin = {
       url = "github:lnl7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -30,7 +30,7 @@
         fonts = {
           enableFontDir = true;
           fonts = with pkgs;
-            [ (nerdfonts.override { fonts = [ "CascadiaCode" ]; }) ];
+            [ (nerdfonts.override { fonts = [ "Hasklig" ]; }) ];
         };
 
         users.users.vasanthakumarv = {

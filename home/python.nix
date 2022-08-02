@@ -1,3 +1,7 @@
 { pkgs, ... }: {
-  home.packages = with pkgs; [ nodePackages.pyright poetry black ];
+  home.packages = with pkgs; [
+    nodePackages.pyright
+    pdm
+    black
+  ];
 }

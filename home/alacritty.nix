@@ -5,18 +5,18 @@
       env = { "TERM" = "xterm-256color"; };
       font = {
         size = 12.0;
-        offset = { y = 6.0; };
+        # offset = { y = 6.0; };
         normal = {
-          family = "CaskaydiaCove Nerd Font Mono";
-          style = "Book";
+          family = "Hasklug Nerd Font";
+          style = "Regular";
         };
         bold = {
-          family = "CaskaydiaCove Nerd Font Mono";
-          style = "Book";
+          family = "Hasklug Nerd Font";
+          style = "Bold";
         };
         italic = {
-          family = "CaskaydiaCove Nerd Font Mono";
-          style = "Book";
+          family = "Hasklug Nerd Font";
+          style = "Italic";
         };
       };
       colors = {
