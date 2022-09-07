@@ -16,8 +16,8 @@
       home = builtins.getEnv "HOME";
 
       user = {
-        username = "vasanthakumarv";
-        home = "/Users/vasanthakumarv";
+        username = "vasanth";
+        home = "/Users/vasanth";
       };
 
       configuration = { pkgs, ... }: {
@@ -33,14 +33,14 @@
             [ (nerdfonts.override { fonts = [ "Hasklig" ]; }) ];
         };
 
-        users.users.vasanthakumarv = {
+        users.users.vasanth = {
           name = user.username;
           home = user.home;
           shell = pkgs.zsh;
         };
       };
     in {
-      darwinConfigurations."vasanthakumarv" = darwin.lib.darwinSystem {
+      darwinConfigurations."vasanth" = darwin.lib.darwinSystem {
         system = "x86_64-darwin";
         modules = [
           configuration
@@ -50,7 +50,7 @@
               useGlobalPkgs = true;
               extraSpecialArgs = { user = user; };
               # TODO: Fix this, no hardcoding path
-              users.vasanthakumarv = import "${home}/.config/config/home";
+              users.vasanth = import "${home}/.config/config/home";
             };
           }
         ];
