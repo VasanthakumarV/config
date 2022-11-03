@@ -11,11 +11,6 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    android-nixpkgs = {
-      url = "github:tadfisher/android-nixpkgs";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = { self, nixpkgs, darwin, home-manager, android-nixpkgs }:
@@ -53,14 +48,14 @@
         modules = [
           home-manager.darwinModule
 
-          android-nixpkgs.hmModule
-
           configuration
 
           {
             home-manager = {
               useGlobalPkgs = true;
-              extraSpecialArgs = { home = home; };
+              extraSpecialArgs = {
+                home = home;
+              };
               # TODO: Fix this, no hardcoding path
               users.vasanth = import "${home}/.config/config/home";
             };
