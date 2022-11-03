@@ -14,11 +14,5 @@
     jq
     wget
     svdtools
-
-    # journal
-    mdbook
-
-	# dbs
-	postgresql
   ];
 }

@@ -9,9 +9,13 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    android-nixpkgs = {
+      url = "github:tadfisher/android-nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, darwin, nixpkgs, home-manager }:
+  outputs = { self, darwin, nixpkgs, home-manager, android-nixpkgs }:
     let
       home = builtins.getEnv "HOME";
 
@@ -28,7 +32,7 @@
         '';
 
         fonts = {
-          enableFontDir = true;
+          fontDir.enable = true;
           fonts = with pkgs;
             [ (nerdfonts.override { fonts = [ "Hasklig" ]; }) ];
         };
@@ -42,13 +46,16 @@
     in {
       darwinConfigurations."vasanth" = darwin.lib.darwinSystem {
         system = "x86_64-darwin";
+
         modules = [
           configuration
+
           home-manager.darwinModule
+
           {
             home-manager = {
               useGlobalPkgs = true;
-              extraSpecialArgs = { user = user; };
+
               # TODO: Fix this, no hardcoding path
               users.vasanth = import "${home}/.config/config/home";
             };

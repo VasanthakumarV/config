@@ -59,7 +59,7 @@ require('lspconfig')['rust_analyzer'].setup {
 
 -- Add additional capabilities supported by nvim-cmp
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = "menuone,noselect"
@@ -142,7 +142,7 @@ require('nightfox').setup({
     }
   }
 })
-vim.cmd("colorscheme nightfox")
+vim.cmd("colorscheme carbonfox")
 
 require('nvim-tree').setup {
   actions = {

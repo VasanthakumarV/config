@@ -1,4 +1,6 @@
-{ pkgs, user, ... }: {
+{ pkgs, ... }: {
+  home.stateVersion = "22.05";
+
   imports = [
     (import ./programs.nix { inherit pkgs; })
     (import ./zsh.nix { inherit pkgs; })
