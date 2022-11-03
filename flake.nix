@@ -13,7 +13,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, darwin, home-manager, android-nixpkgs }:
+  outputs = { self, nixpkgs, darwin, home-manager }:
     let
       home = builtins.getEnv "HOME";
 
@@ -25,6 +25,11 @@
       configuration = { pkgs, ... }: {
         services.nix-daemon.enable = true;
 
+        nixpkgs.config = {
+          allowUnfree = true;
+          android_sdk.accept_license = true;
+        };
+
         nix.extraOptions = ''
           experimental-features = nix-command flakes
         '';
@@ -34,6 +39,11 @@
           fonts = with pkgs;
             [ (nerdfonts.override { fonts = [ "Hasklig" ]; }) ];
         };
+
+        # homebrew = {
+        # enable = true;
+        # casks = [ "android-sdk" ];
+        # };
 
         users.users.vasanth = {
           name = user.username;
@@ -53,9 +63,7 @@
           {
             home-manager = {
               useGlobalPkgs = true;
-              extraSpecialArgs = {
-                home = home;
-              };
+              extraSpecialArgs = { home = home; };
               # TODO: Fix this, no hardcoding path
               users.vasanth = import "${home}/.config/config/home";
             };

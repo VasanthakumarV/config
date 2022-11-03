@@ -14,5 +14,7 @@
     jq
     wget
     svdtools
+
+	androidenv.androidPkgs_9_0.androidsdk
   ];
 }

@@ -1,5 +1,5 @@
 { pkgs, home, ... }: {
-  home.stateVersion = "22.05";
+  home.stateVersion = "22.11";
 
   imports = [
     (import ./programs.nix { inherit pkgs; })
