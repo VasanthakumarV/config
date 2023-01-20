@@ -1,13 +1,11 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [
-    exa
-    bat
     ripgrep
     fd
     bottom
-    dua
     nixfmt
     nushell
+    wezterm
 
     # Required for downloading and parsing chip files
     # Associated with Embassy
@@ -15,6 +13,10 @@
     wget
     svdtools
 
-	androidenv.androidPkgs_9_0.androidsdk
+    # Rust linker
+    zld
+
+    # For tauri-android
+    jdk
   ];
 }

@@ -25,11 +25,6 @@
       configuration = { pkgs, ... }: {
         services.nix-daemon.enable = true;
 
-        nixpkgs.config = {
-          allowUnfree = true;
-          android_sdk.accept_license = true;
-        };
-
         nix.extraOptions = ''
           experimental-features = nix-command flakes
         '';
@@ -40,15 +35,9 @@
             [ (nerdfonts.override { fonts = [ "Hasklig" ]; }) ];
         };
 
-        # homebrew = {
-        # enable = true;
-        # casks = [ "android-sdk" ];
-        # };
-
         users.users.vasanth = {
           name = user.username;
           home = user.home;
-          shell = pkgs.zsh;
         };
       };
     in {

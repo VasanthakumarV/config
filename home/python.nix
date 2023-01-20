@@ -1,3 +1,9 @@
 { pkgs, ... }: {
-  home.packages = with pkgs; [ nodePackages.pyright pdm black ];
+  home.packages = with pkgs; [
+    nodePackages.npm
+    nodePackages.tailwindcss
+    nodePackages.pyright
+    black
+    pdm
+  ];
 }
